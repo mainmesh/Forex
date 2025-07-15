@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: dollarprinter
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn dollarprinter.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: dollarprinter.settings
+      - key: SECRET_KEY
+        value: your-django-secret-key
+      - key: ALLOWED_HOSTS
+        value: dollarprinter.onrender.com

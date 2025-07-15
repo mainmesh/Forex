@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ profile.name }}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #f4f4f4;
+    }
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .bio {
+      margin: 10px 0;
+      color: #333;
+    }
+    .link-button {
+      background-color: black;
+      color: white;
+      padding: 12px;
+      margin: 10px auto;
+      width: 80%;
+      max-width: 400px;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .link-button:hover {
+      background-color: #333;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .tagline {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .social-icons {
+      margin: 15px 0;
+    }
+    .social-icons a {
+      margin: 0 8px;
+      display: inline-block;
+    }
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="title">Dollarprinter.com</div>
+  <div class="tagline">
+    <p>No Risk No Reward 🎉 Giving back to the community 💯 Poverty is a disease ✅️</p>
+    
+  </div>
+
+  <div class="social-icons">
+    <a href="https://instagram.com/your_username" target="_blank">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/instagram.svg" alt="Instagram">
+    </a>
+    <a href="https://youtube.com/@your_channel" target="_blank">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/youtube.svg" alt="YouTube">
+    </a>
+    <a href="https://wa.me/your_number" target="_blank">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/whatsapp.svg" alt="WhatsApp">
+    </a>
+    <a href="https://facebook.com/your_page" target="_blank">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/facebook.svg" alt="Facebook">
+    </a>
+  </div>
+
+  {% if profile.profile_image %}
+    <img src="{{ profile.profile_image.url }}" alt="Profile Image">
+  {% endif %}
+  <!--h2>{{ profile.name }}</h2-->
+  <!--p class="bio">{{ profile.bio }}</p-->
+
+  {% for link in profile.links.all %}
+    <a class="link-button" href="{{ link.url }}" target="_blank">{{ link.title }}</a>
+  {% endfor %}
+
+</body>
+</html>
