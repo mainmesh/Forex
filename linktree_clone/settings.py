@@ -8,7 +8,8 @@ SECRET_KEY = 'm2ew1)(ghi^s)7_*l&&_26y82+1x=@$utbaqi-72o&*77acaqm'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['dollarprinter.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['dollarprinter.onrender.com', 'dollarprinter-fx.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 INSTALLED_APPS = [
