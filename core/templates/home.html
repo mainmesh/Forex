@@ -7,56 +7,34 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
       text-align: center;
       padding: 20px;
       margin: 0;
+      background-color: #f4f4f4;
     }
 
-    img {
-      width: 120px;
-      height: 120px;
+    img.profile-pic {
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       object-fit: cover;
-      margin-top: 20px;
+      margin-bottom: 10px;
     }
 
     .title {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: bold;
-      margin-top: 10px;
+      margin-bottom: 6px;
     }
 
     .tagline {
       font-size: 14px;
-      color: #333;
-      margin: 10px 0 20px;
-      padding: 0 10px;
-    }
-
-    .link-button {
-      background-color: white;
-      color: #0056ff;
-      padding: 14px;
-      margin: 12px auto;
-      width: 90%;
-      max-width: 500px;
-      border: 1px solid #0056ff;
-      border-radius: 30px;
-      text-decoration: none;
-      display: block;
-      font-size: 16px;
-      box-shadow: 0 3px 10px rgba(0, 86, 255, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .link-button:hover {
-      background-color: #0056ff;
-      color: white;
+      color: #555;
+      margin-bottom: 20px;
     }
 
     .social-icons {
-      margin: 20px 0;
+      margin: 15px 0 30px;
     }
 
     .social-icons a {
@@ -67,16 +45,34 @@
     .social-icons img {
       width: 28px;
       height: 28px;
-      border-radius: 50%;
+      filter: invert(29%) sepia(92%) saturate(2830%) hue-rotate(202deg) brightness(98%) contrast(101%);
     }
 
-    @media (max-width: 500px) {
-      .title {
-        font-size: 22px;
-      }
+    .link-button {
+      background-color: black;
+      color: white;
+      padding: 16px;
+      margin: 12px auto;
+      width: 90%;
+      max-width: 500px;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      display: block;
+      font-size: 18px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
 
+    .link-button:hover {
+      background-color: #333;
+    }
+
+    @media (max-width: 600px) {
       .link-button {
-        font-size: 15px;
+        font-size: 17px;
+        padding: 14px;
+        width: 95%;
       }
     }
   </style>
@@ -84,27 +80,26 @@
 <body>
 
   {% if profile.profile_image %}
-    <img src="{{ profile.profile_image.url }}" alt="Profile Image">
+    <img class="profile-pic" src="{{ profile.profile_image.url }}" alt="Profile Image">
   {% endif %}
 
   <div class="title">Dollarprinter.com</div>
-
   <div class="tagline">
-    No Risk No Reward 🎉 Giving back to the community 💯 Poverty is a disease ✅
+    <p>No Risk No Reward 🎉 Giving back to the community 💯 Poverty is a disease ✅️</p>
   </div>
 
   <div class="social-icons">
     <a href="https://instagram.com/your_username" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" style="background-color:#E1306C;" alt="Instagram">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/instagram.svg" alt="Instagram">
     </a>
     <a href="https://youtube.com/@your_channel" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" style="background-color:#FF0000;" alt="YouTube">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/youtube.svg" alt="YouTube">
     </a>
     <a href="https://wa.me/your_number" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" style="background-color:#25D366;" alt="WhatsApp">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/whatsapp.svg" alt="WhatsApp">
     </a>
     <a href="https://facebook.com/your_page" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" style="background-color:#1877F2;" alt="Facebook">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/facebook.svg" alt="Facebook">
     </a>
   </div>
 
