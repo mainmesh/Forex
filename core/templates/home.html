@@ -2,116 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ profile.name }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
       padding: 20px;
       background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
     }
-    img {
-      width: 120px;
-      height: 120px;
+
+    .container {
+      background-color: white;
+      padding: 25px 15px;
+      max-width: 500px;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       object-fit: cover;
+      margin-bottom: 15px;
     }
+
     .title {
       font-size: 24px;
       font-weight: bold;
-      margin: 10px 0;
+      margin-bottom: 10px;
     }
+
     .tagline {
       font-size: 14px;
-      color: #555;
+      color: #444;
       margin-bottom: 20px;
-      padding: 0 10px;
     }
+
     .social-icons {
-      margin: 15px 0;
+      margin-bottom: 20px;
     }
+
     .social-icons a {
-      margin: 0 10px;
+      margin: 0 8px;
       display: inline-block;
     }
+
     .social-icons img {
-      width: 24px;
-      height: 24px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
     }
 
     .link-button {
-      background-color: white;
-      color: #1a1a1a;
-      padding: 16px;
+      background-color: #ffffff;
+      color: #000;
+      padding: 14px;
       margin: 12px auto;
       width: 90%;
-      max-width: 500px;
+      max-width: 420px;
       border: none;
-      border-radius: 50px;
+      border-radius: 30px;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
       font-size: 16px;
-      font-weight: 500;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-weight: bold;
+      transition: background 0.2s ease-in-out;
     }
 
     .link-button:hover {
       background-color: #f0f0f0;
-      transform: scale(1.02);
-    }
-
-    @media (max-width: 600px) {
-      .title {
-        font-size: 20px;
-      }
-
-      .link-button {
-        font-size: 15px;
-        padding: 14px;
-      }
     }
   </style>
 </head>
 <body>
 
-  <div class="title">Dollarprinter.com</div>
+  <div class="container">
+    
+    {% if profile.profile_image %}
+      <img class="profile-img" src="{{ profile.profile_image.url }}" alt="Profile Image">
+    {% endif %}
 
-  <div class="tagline">
-    No Risk No Reward 🎉 Giving back to the community 💯 Poverty is a disease ✅️
+    <div class="title">Dollarprinter.com</div>
+    <div class="tagline">
+      No Risk No Reward 🎉 Giving back to the community 💯 Poverty is a disease ✅
+    </div>
+
+    <div class="social-icons">
+      <a href="https://instagram.com/your_username" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+      </a>
+      <a href="https://youtube.com/@your_channel" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+      </a>
+      <a href="https://wa.me/your_number" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384023.png" alt="WhatsApp">
+      </a>
+      <a href="https://facebook.com/your_page" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+      </a>
+    </div>
+
+    {% for link in profile.links.all %}
+      <a class="link-button" href="{{ link.url }}" target="_blank">{{ link.title }}</a>
+    {% endfor %}
+
   </div>
-
-  <div class="social-icons">
-    <a href="https://instagram.com/your_username" target="_blank">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/instagram.svg" alt="Instagram">
-    </a>
-    <a href="https://youtube.com/@your_channel" target="_blank">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/youtube.svg" alt="YouTube">
-    </a>
-    <a href="https://wa.me/your_number" target="_blank">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/whatsapp.svg" alt="WhatsApp">
-    </a>
-    <a href="https://facebook.com/your_page" target="_blank">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/facebook.svg" alt="Facebook">
-    </a>
-  </div>
-
-  {% if profile.profile_image %}
-    <img src="{{ profile.profile_image.url }}" alt="Profile Image">
-  {% endif %}
-
-  {% for link in profile.links.all %}
-    <a class="link-button" href="{{ link.url }}" target="_blank">
-      {{ link.title }}
-    </a>
-  {% endfor %}
 
 </body>
 </html>
