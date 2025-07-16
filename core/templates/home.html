@@ -6,46 +6,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      margin: 0;
-      padding: 20px;
-      background-color: #f4f4f4;
       font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-    }
-
-    .container {
-      background-color: white;
-      padding: 25px 15px;
-      max-width: 500px;
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      background-color: #f4f4f4;
       text-align: center;
+      padding: 20px;
+      margin: 0;
     }
 
-    .profile-img {
-      width: 140px;
-      height: 140px;
+    img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 15px;
+      margin-top: 20px;
     }
 
     .title {
       font-size: 24px;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-top: 10px;
     }
 
     .tagline {
       font-size: 14px;
-      color: #444;
-      margin-bottom: 20px;
+      color: #333;
+      margin: 10px 0 20px;
+      padding: 0 10px;
+    }
+
+    .link-button {
+      background-color: white;
+      color: #0056ff;
+      padding: 14px;
+      margin: 12px auto;
+      width: 90%;
+      max-width: 500px;
+      border: 1px solid #0056ff;
+      border-radius: 30px;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+      box-shadow: 0 3px 10px rgba(0, 86, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .link-button:hover {
+      background-color: #0056ff;
+      color: white;
     }
 
     .social-icons {
-      margin-bottom: 20px;
+      margin: 20px 0;
     }
 
     .social-icons a {
@@ -54,71 +65,52 @@
     }
 
     .social-icons img {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      transition: transform 0.2s;
     }
 
-    .social-icons img:hover {
-      transform: scale(1.1);
-    }
+    @media (max-width: 500px) {
+      .title {
+        font-size: 22px;
+      }
 
-    .link-button {
-      background-color: #ffffff;
-      color: #000;
-      padding: 14px;
-      margin: 12px auto;
-      width: 90%;
-      max-width: 420px;
-      border: none;
-      border-radius: 30px;
-      text-decoration: none;
-      display: block;
-      font-size: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      font-weight: bold;
-      transition: background 0.2s ease-in-out;
-    }
-
-    .link-button:hover {
-      background-color: #f0f0f0;
+      .link-button {
+        font-size: 15px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    
-    {% if profile.profile_image %}
-      <img class="profile-img" src="{{ profile.profile_image.url }}" alt="Profile Image">
-    {% endif %}
+  {% if profile.profile_image %}
+    <img src="{{ profile.profile_image.url }}" alt="Profile Image">
+  {% endif %}
 
-    <div class="title">Dollarprinter.com</div>
-    <div class="tagline">
-      No Risk No Reward 🎉 Giving back to the community 💯 Poverty is a disease ✅
-    </div>
+  <div class="title">Dollarprinter.com</div>
 
-    <div class="social-icons">
-      <a href="https://instagram.com/your_username" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
-      </a>
-      <a href="https://youtube.com/@your_channel" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-      </a>
-      <a href="https://wa.me/your_number" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384023.png" alt="WhatsApp">
-      </a>
-      <a href="https://facebook.com/your_page" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
-      </a>
-    </div>
-
-    {% for link in profile.links.all %}
-      <a class="link-button" href="{{ link.url }}" target="_blank">{{ link.title }}</a>
-    {% endfor %}
-
+  <div class="tagline">
+    No Risk No Reward 🎉 Giving back to the community 💯 Poverty is a disease ✅
   </div>
+
+  <div class="social-icons">
+    <a href="https://instagram.com/your_username" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" style="background-color:#E1306C;" alt="Instagram">
+    </a>
+    <a href="https://youtube.com/@your_channel" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" style="background-color:#FF0000;" alt="YouTube">
+    </a>
+    <a href="https://wa.me/your_number" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" style="background-color:#25D366;" alt="WhatsApp">
+    </a>
+    <a href="https://facebook.com/your_page" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" style="background-color:#1877F2;" alt="Facebook">
+    </a>
+  </div>
+
+  {% for link in profile.links.all %}
+    <a class="link-button" href="{{ link.url }}" target="_blank">{{ link.title }}</a>
+  {% endfor %}
 
 </body>
 </html>
