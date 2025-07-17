@@ -8,7 +8,7 @@
     body {
       margin: 0;
       padding: 20px;
-      background-color: #0e3d51; /* Deep teal background */
+      background-color: #0e3d51;
       display: flex;
       justify-content: center;
       font-family: Arial, sans-serif;
@@ -117,6 +117,12 @@
         {{ link.title }}
       </a>
     {% endfor %}
+
+    <!-- Static 'Trade Here' button -->
+    <a class="link-button" href="{% url 'trade_here' %}">
+      Trade Here 🚀
+    </a>
+
   </div>
 </body>
 </html>
