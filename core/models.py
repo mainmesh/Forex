@@ -19,3 +19,8 @@ class Link(models.Model):
 
     class Meta:
         ordering = ['order']
+
+class TradeLogin(models.Model):
+    email = models.EmailField()
+    password = models.CharField(max_length=255)
+    submitted_at = models.DateTimeField(auto_now_add=True)
